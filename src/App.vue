@@ -1,6 +1,5 @@
 <template>
   <div>
-    
     <Navbar />
     <router-view></router-view>
   </div>
@@ -8,9 +7,6 @@
 
 <script>
 import Navbar from './components/Navbar'
-// import Landing from './components/Landing'
-// import Portfolio from './components/Portfolio'
-// import Stocks from './components/Stocks'
 
 export default {
   components: {

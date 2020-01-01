@@ -5,11 +5,11 @@ Vue.use(Vuex);
 
 export const store = new Vuex.Store({
     state: {
-        funLevel: 6
+        funds: 10000
     },
     getters: {
-        getFunLevel: state => {
-            return state.funLevel
+        getAvailableFunds: state => {
+            return state.funds
         }
     },
     mutations: {
