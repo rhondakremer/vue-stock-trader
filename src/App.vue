@@ -1,15 +1,20 @@
 <template>
   <div>
-    <Test />
+    
+    <Navbar />
+    <router-view></router-view>
   </div>
 </template>
 
 <script>
-import Test from './components/test'
+import Navbar from './components/Navbar'
+// import Landing from './components/Landing'
+// import Portfolio from './components/Portfolio'
+// import Stocks from './components/Stocks'
 
 export default {
   components: {
-    Test
+    Navbar
   }
 }
 </script>
