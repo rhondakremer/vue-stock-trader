@@ -9,9 +9,6 @@
         </p>
       </div>
     </div>
-    <br>
-    {{ getStockInfo }}
-          purchase amount is: {{ purchaseAmount }}
   </div>
 </template>
 

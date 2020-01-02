@@ -46,9 +46,15 @@ export const store = new Vuex.Store({
         sellStocks: (state, payload) => {
             state.stockPrices[payload.index].holding -= Number(payload.amount);
             state.funds += payload.price * payload.amount;
+        },
+        setFromDB: (state, payload) => {
+            state.funds = payload.funds;
+            state.stockPrices = payload.stockPrices
         }
     },
     actions: {
-
+        setFromDB: ({ commit }, payload) => {
+            commit('setFromDB', payload)
+        },
     }
 })
