@@ -6,7 +6,7 @@
         <p>You may Save & Load your Data</p>
         <p>Click on 'End Day' to begin a new day!</p>
         <hr>
-        <h4>Your Funds: {{ getAvailableFunds }}</h4>
+        <h4>Your Funds: ${{ getAvailableFunds }}</h4>
       </div>
     </div>
   </div>

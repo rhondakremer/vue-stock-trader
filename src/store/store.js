@@ -20,11 +20,32 @@ export const store = new Vuex.Store({
         getStockInfo: state => {
             return state.stockPrices
         },
+        getPortfolio: state => {
+            let portfolio = [];
+            for (let i = 0; i < state.stockPrices.length; i++) {
+                if (state.stockPrices[i].holding > 0) {
+                    portfolio.push(state.stockPrices[i])
+                }
+            }
+            if (portfolio.length) {
+                return portfolio
+            }
+            return false;
+        },
     },
     mutations: {
         buyStocks: (state, payload) => {
             state.stockPrices[payload.index].holding += Number(payload.amount);
             state.funds -= payload.price * payload.amount;
+        },
+        updatePricing: (state, payload) => {
+            for (let i = 0; i < payload.length; i++) {
+                state.stockPrices[i].price = payload[i];
+            }
+        },
+        sellStocks: (state, payload) => {
+            state.stockPrices[payload.index].holding -= Number(payload.amount);
+            state.funds += payload.price * payload.amount;
         }
     },
     actions: {

@@ -7,8 +7,8 @@
             <router-link to="/stocks" tag="li"><a>Stocks</a></router-link>
         </ul>
         <ul class="nav nav-pills">
-            <li @click="endDay">End Day</li>
-            <li @click="clickTest">Save and Load</li>
+            <li @click="endDay">End Day |</li>
+            <li @click="clickTest">Save and Load |</li>
             <li>Funds: ${{ getAvailableFunds }}</li>
         </ul>
     </div>
@@ -28,8 +28,12 @@ export default {
             console.log("that's a good click there")
         },
         endDay() {
-            let cost = Math.floor(Math.random() * (150 - 40 + 1) + 180);
-            console.log(cost)
+            let costArray = [];
+            for (let i = 0; i < 4; i++) {
+                let cost = Math.floor(Math.random() * (180 - 40 + 1) + 40);
+                costArray.push(cost)
+            }
+            this.$store.commit('updatePricing', costArray);
         }
     }
     
