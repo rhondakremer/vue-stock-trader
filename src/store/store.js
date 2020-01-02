@@ -22,7 +22,10 @@ export const store = new Vuex.Store({
         },
     },
     mutations: {
-
+        buyStocks: (state, payload) => {
+            state.stockPrices[payload.index].holding += payload.amount;
+            state.funds -= payload.price * payload.amount;
+        }
     },
     actions: {
 
