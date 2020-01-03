@@ -1,24 +1,16 @@
 <template>
   <div class="container">
-  <div v-if="getPortfolio">
-    <div class="card" style="width: 40rem; border:1px solid black; margin-left:1%" v-for="(stock, index) in getPortfolio" :key="index">
-      <div class="card-body" style="margin:2%">
-        <h5 class="card-title">{{ stock.name }} (Price: {{ stock.price }} | Quantity: {{ stock.holding }})</h5>
-        <p class="card-text">
-          <input type="text" placeholder="Quantity" v-model.lazy="sellAmount" />
-          <button @click="sellStocks({index:index, amount:sellAmount, price:stock.price})">Sell</button>
-        </p>
+      <div v-if="getPortfolio">
+        <PortfolioStock v-for="(stock, index) in getPortfolio" :stock="stock" :index="index" :key="index" />
       </div>
-    </div>
-  </div>
-
-  <div v-else>
-      <p>Your portfolio is empty :( Visit the stocks tab to make a purchase.</p>
-  </div>
+      <div v-else>
+          <p>Your portfolio is empty :( Visit the stocks tab to make a purchase.</p>
+      </div>
   </div>
 </template>
 
 <script>
+import PortfolioStock from './PortfolioStock.vue'
 import { mapGetters } from "vuex";
 import { mapMutations } from "vuex";
 
@@ -27,6 +19,9 @@ export default {
       return {
           sellAmount: ''
       }
+  },
+  components: {
+      PortfolioStock
   },
   computed: {
     ...mapGetters(["getStockInfo", "getPortfolio"])

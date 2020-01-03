@@ -5,11 +5,12 @@ import App from './App.vue';
 import { routes } from './routes';
 import { store } from './store/store.js';
 
-Vue.config.productionTip = false
+Vue.config.productionTip = false;
 
-Vue.use(VueRouter) 
+Vue.use(VueRouter);
 
 const router = new VueRouter({
+  mode: 'history',
   routes,
 })
 

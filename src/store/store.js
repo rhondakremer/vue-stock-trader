@@ -6,7 +6,7 @@ Vue.use(Vuex);
 export const store = new Vuex.Store({
     state: {
         funds: 10000,
-        stockPrices: [
+        stockInfo: [
             {name: 'stock1', price: 90, holding: 0},
             {name: 'stock2', price: 100, holding: 0},
             {name: 'stock3', price: 110, holding: 0},
@@ -18,13 +18,13 @@ export const store = new Vuex.Store({
             return state.funds
         },
         getStockInfo: state => {
-            return state.stockPrices
+            return state.stockInfo
         },
         getPortfolio: state => {
             let portfolio = [];
-            for (let i = 0; i < state.stockPrices.length; i++) {
-                if (state.stockPrices[i].holding > 0) {
-                    portfolio.push(state.stockPrices[i])
+            for (let i = 0; i < state.stockInfo.length; i++) {
+                if (state.stockInfo[i].holding > 0) {
+                    portfolio.push(state.stockInfo[i])
                 }
             }
             if (portfolio.length) {
@@ -35,21 +35,21 @@ export const store = new Vuex.Store({
     },
     mutations: {
         buyStocks: (state, payload) => {
-            state.stockPrices[payload.index].holding += Number(payload.amount);
+            state.stockInfo[payload.index].holding += Number(payload.amount);
             state.funds -= payload.price * payload.amount;
         },
         updatePricing: (state, payload) => {
             for (let i = 0; i < payload.length; i++) {
-                state.stockPrices[i].price = payload[i];
+                state.stockInfo[i].price = payload[i];
             }
         },
         sellStocks: (state, payload) => {
-            state.stockPrices[payload.index].holding -= Number(payload.amount);
+            state.stockInfo[payload.index].holding -= Number(payload.amount);
             state.funds += payload.price * payload.amount;
         },
         setFromDB: (state, payload) => {
             state.funds = payload.funds;
-            state.stockPrices = payload.stockPrices
+            state.stockInfo = payload.stockInfo
         }
     },
     actions: {

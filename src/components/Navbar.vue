@@ -4,9 +4,9 @@
   >
     <h2 style="margin-bottom:20px">Stock Trader</h2>
     <ul class="nav nav-pills">
-      <router-link to="/" tag="li"><a>Home</a></router-link>
-      <router-link to="/portfolio" tag="li"><a>Portfolio</a></router-link>
-      <router-link to="/stocks" tag="li"><a>Stocks</a></router-link>
+      <router-link to="/" tag="li" activeClass="active" exact><a>Home</a></router-link>
+      <router-link to="/portfolio" tag="li" activeClass="active"><a>Portfolio</a></router-link>
+      <router-link to="/stocks" tag="li" activeClass="active"><a>Stocks</a></router-link>
     </ul>
     <ul class="nav nav-pills">
       <li @click="endDay"><a>End Day</a></li>
