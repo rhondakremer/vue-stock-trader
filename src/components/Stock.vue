@@ -1,10 +1,10 @@
 <template>
-  <div class="container">
-    <div class="card" style="width: 40rem; border:1px solid black; display:inline-block; margin-left:1%">
-      <div class="card-body" style="margin:2%">
-        <h5 class="card-title">{{ stock.name}} (Price: {{ stock.price }})</h5>
+  <div class="container col-md-5 col-sm-6" style="margin-left: 5%; margin-top:3%">
+    <div class="card">
+      <div class="card-body">
+        <h5 class="card-title">{{ stock.name}} (Price: ${{ stock.price }})</h5>
         <p class="card-text">
-          <input type="text" placeholder="Quantity" v-model.lazy="purchaseAmount">
+          <input type="text" placeholder="Quantity" v-model="purchaseAmount">
           <button @click="buyStocks({index:index, amount:Number(purchaseAmount), price:stock.price})">Buy</button>
         </p>
       </div>
@@ -41,3 +41,27 @@ export default {
   }
 };
 </script>
+
+<style scoped>
+.container {
+  background-color: whitesmoke;
+  padding: 1%;
+}
+
+.card {
+  max-width: 100%; 
+  margin-left:1%;
+  border-radius: 0.3rem;
+  border:1px #337ab7 solid; 
+  padding: 5px;
+}
+
+.card-body {
+  margin: 2%;
+}
+
+button:hover {
+  background-color: #337ab7;
+  color: white;
+}
+</style>

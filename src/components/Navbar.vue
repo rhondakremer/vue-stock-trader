@@ -1,7 +1,5 @@
 <template>
-  <div
-    style="display:flex; justify-content:space-around; align-items:center; border:1px solid black; margin-bottom:2%"
-  >
+  <div id="navbar">
     <h2 style="margin-bottom:20px">Stock Trader</h2>
     <ul class="nav nav-pills">
       <router-link to="/" tag="li" activeClass="active" exact><a>Home</a></router-link>
@@ -11,7 +9,7 @@
     <ul class="nav nav-pills">
       <li @click="endDay"><a>End Day</a></li>
       <li style="padding:10px">
-        <select v-model="selectedOption" @input="event => { axiosRequest(event.target.value) }">
+        <select class="dropdown-options" v-model="selectedOption" @input="event => { axiosRequest(event.target.value) }">
           <option v-for="(option,index) in options" :key="index">{{ option.text }}</option>
         </select>
       </li>
@@ -69,3 +67,32 @@ export default {
   }
 };
 </script>
+
+<style scoped>
+#navbar {
+  color: whitesmoke;
+  display:flex; 
+  justify-content:space-around; 
+  align-items:center; 
+  border-bottom: 2px solid whitesmoke; 
+  margin-bottom:2%;
+}
+
+a, li {
+  color: whitesmoke;
+  font-weight: bold;
+  letter-spacing: 2px;
+  font-size: 15px;
+}
+
+a:hover {
+  color: #351263;
+  font-weight: bold;
+  letter-spacing: 2px;
+  font-size: 15px;
+}
+
+.dropdown-options {
+  color: #351263;
+}
+</style>

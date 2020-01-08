@@ -34,3 +34,10 @@ export default {
   }
 };
 </script>
+
+<style scoped>
+.card {
+  max-height: 100%;
+  border: 1px red solid;
+}
+</style>
