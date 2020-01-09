@@ -27,13 +27,12 @@ export default {
         'buyStocks'
     ]),
       buyStocks(payload) {
-          console.log(payload)
+          // console.log(payload)
           if (this.$store.state.funds > 0 && (payload.amount * payload.price) <= this.$store.state.funds) {
               this.purchaseAmount = '';
               this.$store.commit('buyStocks', payload);
           }
           else {
-              this.purchaseAmount = '';
               alert("Insufficient funds!")
           }
           

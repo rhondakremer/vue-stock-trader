@@ -7,10 +7,10 @@ export const store = new Vuex.Store({
     state: {
         funds: 10000,
         stockInfo: [
-            {name: 'stock1', price: 90, holding: 0},
-            {name: 'stock2', price: 100, holding: 0},
-            {name: 'stock3', price: 110, holding: 0},
-            {name: 'stock4', price: 120, holding: 0}
+            {name: 'BMW', price: 90, holding: 0},
+            {name: 'Apple', price: 100, holding: 0},
+            {name: 'GM', price: 110, holding: 0},
+            {name: 'Uber', price: 120, holding: 0}
         ],
     },
     getters: {

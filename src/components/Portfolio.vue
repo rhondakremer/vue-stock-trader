@@ -41,16 +41,15 @@ export default {
 
 <style scoped>
 .portfolio-stock-holder {
-  background-color: whitesmoke;
-  border-radius: 0.3rem;
-  margin-top: 3%;
-  height: 336px;
+    border-radius: 0.3rem;
+    background-color: whitesmoke;
+    margin-top: 3%;
+    min-height: 336px;
 }
 
 #empty-portfolio-message {
   text-align: center;
   margin-top: 13%;
   font-size: 20px;
-  
 }
 </style>

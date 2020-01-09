@@ -1,15 +1,17 @@
 <template>
-  <div class="container">
-    <div class="card" style="width: 40rem; border:1px solid black; margin-left:1%">
-      <div class="card-body" style="margin:2%">
+
+    <div class="container col-md-5 col-sm-6" style="margin-left: 5%; margin-top:3%">
+      <div class="card">
+      <div class="card-body">
         <h5 class="card-title">{{ stock.name }} (Price: {{ stock.price }} | Quantity: {{ stock.holding }})</h5>
         <p class="card-text">
-          <input type="number" placeholder="Quantity" v-model.lazy="sellAmount" />
+          <input type="number" placeholder="Quantity" v-model="sellAmount" />
           <button @click="sellStocks({index:index, amount:sellAmount, price:stock.price})">Sell</button>
         </p>
       </div>
     </div>
-  </div>
+    </div>
+
 </template>
 
 <script>
@@ -27,17 +29,40 @@ export default {
         'buyStocks'
     ]),
       sellStocks(payload) {
-          console.log(payload)
-          this.sellAmount = '';
-          this.$store.commit('sellStocks', payload);
+          // console.log(payload);
+          if (this.stock.holding < payload.amount) {
+            alert("You do not have enough holdings available")
+          }
+          else {
+            this.sellAmount = '';
+            this.$store.commit('sellStocks', payload);
+          }
+          
       }
   }
 };
 </script>
 
 <style scoped>
+.container {
+  background-color: whitesmoke;
+  padding: 1%;
+}
+
 .card {
-  max-height: 100%;
-  border: 1px red solid;
+  max-width: 100%; 
+  margin-left:1%;
+  border-radius: 0.3rem;
+  border:1px #337ab7 solid; 
+  padding: 5px;
+}
+
+.card-body {
+  margin: 2%;
+}
+
+button:hover {
+  background-color: #337ab7;
+  color: white;
 }
 </style>
