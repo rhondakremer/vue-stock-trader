@@ -2,6 +2,8 @@ This is a stock trading game built using Vue.js. The user starts with $10,000 an
 
 This app was created as the final project for this VueJS course: https://www.udemy.com/course/vuejs-2-the-complete-guide/
 
+![Screenshot of app](/src/assets/screenshot.png)
+
 
 # vue-stock-trader
 
